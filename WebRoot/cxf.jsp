@@ -23,24 +23,25 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<script type="text/javascript">
 		$(function(){
 			var data = '<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:web="http://web.matic.com/">'
-			   +'<soapenv:Header/>'
-			  +' <soapenv:Body>'
-			      +'<web:addPeople>'
+			   + '<soapenv:Header/>'
+			  + '<soapenv:Body>'
+			      + '<web:addPeople>'
 			         <!--Optional:-->
-			        +' <arg0>'
-			           +' <age>12</age>'
+			        + '<arg0>'
+			           + '<age>12</age>'
 			            <!--Optional:-->
-			           +' <name>devil</name>'
-			           +' <sex></sex>'
-			        +' </arg0>'
-			     +' </web:addPeople>'
-			  +' </soapenv:Body>'
-			+' </soapenv:Envelope>';
+			           + '<name>devil</name>'
+			           + '<sex>1</sex>'
+			        + '</arg0>'
+			     + '</web:addPeople>'
+			  + '</soapenv:Body>'
+			+ '</soapenv:Envelope>';
 		
 			$.ajax({
-				url: "http://10.83.33.106:8080/WebService/service/addPeople",
+				url: "http://localhost:8080/WebService/service/addPeople",
 				type: "post",
 				dataType: "xml",
+				processData: false,
 				contentType: "text/xml;charset=UTF-8",
 				data: data,
 				success: function(responseText){
